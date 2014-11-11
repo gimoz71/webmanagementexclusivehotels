@@ -40,7 +40,7 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class="page-section full-header" data-sticky-class="not-dark">
+        <header id="header" class="transparent-header page-section full-header" data-sticky-class="not-dark">
 
             <div id="header-wrap">
 
@@ -51,30 +51,21 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                        <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
-                        <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                        <a href="#" data-href="#header" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+                        <a href="#" data-href="#header" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
                     ============================================= -->
                     <nav id="primary-menu" class="dark one-page-menu no-offset">
-						<!--<ul>
-                            <li><a href="#" data-href="#header"></a><div class="dots-menu-caption">Home</div></li>
-                            <li><a href="#" data-href="#section-about"></a><div class="dots-menu-caption">About</div></li>
-                            <li><a href="#" data-href="#section-work"></a><div class="dots-menu-caption">Work</div></li>
-                            <li><a href="#" data-href="#section-services"></a><div class="dots-menu-caption">Services</div></li>
-                            <li><a href="#" data-href="#section-video"></a><div class="dots-menu-caption">Video</div></li>
-                            <li><a href="#" data-href="#section-testimonials"></a><div class="dots-menu-caption">Testimonials</div></li>
-                            <li><a href="#" data-href="#section-contact"></a><div class="dots-menu-caption">Contact</div></li>
-                        </ul>-->		
+
                         <ul>
-                            <li><a href="#" data-href="#header"><div>Home</div></a></li>
-                            <li><a href="#" data-href="#section-about"><div>About</div></a></li>
-                            <li><a href="#" data-href="#section-work"><div>Work</div></a></li>
-                            <li><a href="#" data-href="#section-services"><div>Services</div></a></li>
-                            <li><a href="#" data-href="#section-video"><div>Video</div></a></li>
-                            <li><a href="#" data-href="#section-testimonials"><div>Testimonials</div></a></li>
-                            <li><a href="#" data-href="#section-contact"><div>Contacts</div></a></li>
+                            <li><a href="#" data-href="#section-about"><div>Web Management</div></a></li>
+                            <li><a href="#" data-href="#section-work"><div>Hotel Web Design</div></a></li>
+                            <li><a href="#" data-href="#section-services"><div>Referenze</div></a></li>
+                            <li><a href="#" data-href="#section-video"><div>Management</div></a></li>
+                            <li><a href="#" data-href="#section-testimonials"><div>Desk</div></a></li>
+                            <li><a href="#" data-href="#section-contact"><div>Preventivo gratuito</div></a></li>
                         </ul>
 
                     </nav><!-- #primary-menu end -->
@@ -85,19 +76,35 @@
 
         </header><!-- #header end -->
 
-        <section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
+        <section id="slider" class="slider-parallax" style="background: url('images/slider/full/1.jpg'); background-size: cover;" data-height-lg="670" data-height-md="500" data-height-sm="400" data-height-xs="250" data-height-xxs="200">
+            <div class="container clearfix">
+                <div class="vertical-middle center">
+
+                    <div class="heading-block nobottomborder center">
+                        <h1>
+                            <div class="text-rotater" data-separator="|" data-rotate="flipUp" data-speed="3500">
+                                We make your Business <span class="t-rotate">Simple|Customizable|Flexible|Easy|Profitable</span>
+                            </div>
+                        </h1>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
 
             <div class="swiper-container swiper-parent">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide dark" style="background-image: url('images/slider/swiper/1.jpg');">
                         <div class="container clearfix">
                             <div class="slider-caption slider-caption-center">
-                                <h2 data-caption-animate="fadeInUp">Welcome to Canvas</h2>
+                                <h2 data-caption-animate="fadeInUp">"Our business... Your success"</h2>
                                 <p data-caption-animate="fadeInUp" data-caption-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on your own Canvas.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide dark">
+                    <!--<div class="swiper-slide dark">
                         <div class="container clearfix">
                             <div class="slider-caption slider-caption-center">
                                 <h2 data-caption-animate="fadeInUp">Beautifully Flexible</h2>
@@ -120,9 +127,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
-                <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
+                </div>-->
+                <!--<div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
+                <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>-->
             </div>
 
             <script>
@@ -130,8 +137,8 @@
                     var swiperSlider = new Swiper('.swiper-parent',{
                         paginationClickable: false,
                         slidesPerView: 1,
-                        grabCursor: true,
-                        loop: true,
+                        grabCursor: false,
+                        loop: false,
                         onSwiperCreated: function(swiper){
                             $('[data-caption-animate]').each(function(){
                                 var $toAnimateElement = $(this);
@@ -207,8 +214,8 @@
                     <div class="container clearfix">
 
                         <div class="heading-block bottommargin-lg center">
-                            <h2>About Us.</h2>
-                            <span>Everything you need to know about us.</span>
+                            <h2>Web Management & E-Marketing per Hotel Esclusivi.</h2>
+                            <span>WMEh offre servizi integrati continuativi ed applicazioni web-based per aumentare il volume ed il valore delle prenotazioni dirette sul sito web del tuo hotel.</span>
                         </div>
 
                         <div class="col_one_third">
