@@ -14,7 +14,7 @@ if( isset( $_POST['template-contactform-submit'] ) AND $_POST['template-contactf
         $subject = $_POST['template-contactform-subject'];
         $message = $_POST['template-contactform-message'];
 
-        $subject = isset($subject) ? '' : 'New Message From Contact Form';
+        $subject = isset($subject) ? $subject : 'New Message From Contact Form';
 
         $botcheck = $_POST['template-contactform-botcheck'];
 

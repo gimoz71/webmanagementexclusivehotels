@@ -121,6 +121,7 @@ body.dark,
 .dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li > a,
 .dark #header-wrap:not(.not-dark) #top-search a,
 .dark #header-wrap:not(.not-dark) #top-cart a,
+.dark #top-cart .top-cart-item-desc a,
 body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 .dark #header-wrap:not(.not-dark) #top-search a:hover,
 .dark #header-wrap:not(.not-dark) #top-cart a:hover,
@@ -410,6 +411,11 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
     color: #AAA;
 }
 
+.dark .post-timeline .entry.entry-date-section span {
+    border-color: rgba(255,255,255,0.1);
+    background-color: #333;
+}
+
 .dark .post-timeline .entry-timeline div.timeline-divider { border-top-color: rgba(255,255,255,0.1); }
 
 .dark .post-timeline .entry:hover .entry-timeline,
@@ -640,7 +646,7 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 .dark .process-steps li:after,
 .dark .feature-box.fbox-center:not(.fbox-bg) h3:after { border-top-color: rgba(255,255,255,0.15); }
 
-.dark .heading-block:after { border-top-color: rgba(255,255,255,0.4); }
+.dark .heading-block:not(.not-dark):after { border-top-color: rgba(255,255,255,0.4); }
 
 .dark .style-msg2 { border-left: 4px solid rgba(0,0,0,0.3); }
 
@@ -906,7 +912,7 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 
 .dark .title-block > span { color: #999; }
 
-.dark .heading-block,
+.dark .heading-block:not(.not-dark),
 .dark .counter { text-shadow: 1px 1px 1px rgba(0,0,0,0.1); }
 
 .dark .heading-block:not(.not-dark) h1,
@@ -915,6 +921,13 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 .dark .heading-block:not(.not-dark) h4,
 .dark .emphasis-title:not(.not-dark) h1,
 .dark .emphasis-title:not(.not-dark) h2 { color: #FFF; }
+
+.dark .heading-block.not-dark h1,
+.dark .heading-block.not-dark h2,
+.dark .heading-block.not-dark h3,
+.dark .heading-block.not-dark h4,
+.dark .emphasis-title.not-dark h1,
+.dark .emphasis-title.not-dark h2 { color: #333; }
 
 .dark .heading-block:not(.not-dark) > span { color: #EEE; }
 
@@ -970,7 +983,7 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 .dark .preloader2,
 .dark .form-process { background-image: url('../images/preloader-dark.gif'); }
 
-.dark .form-process { background-color: rgba(0,0,0,0.5); }
+.dark .form-process { background-color: transparent; }
 
 
 #footer.dark,
@@ -1112,7 +1125,8 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
 .dark .table-bordered > tfoot > tr > td { border-color: rgba(255,255,255,0.1); }
 
 .dark .table-striped > tbody > tr:nth-child(odd) > td,
-.dark .table-striped > tbody > tr:nth-child(odd) > th { background-color: rgba(0,0,0,0.05); }
+.dark .table-striped > tbody > tr:nth-child(odd) > th,
+.table-striped > tbody > tr:nth-child(odd) { background-color: rgba(0,0,0,0.05); }
 
 .dark .table-hover > tbody > tr:hover > td,
 .dark .table-hover > tbody > tr:hover > th { background-color: rgba(0,0,0,0.1); }
@@ -1557,27 +1571,26 @@ body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a,
     border-color: rgba(255,255,255,0.1);
 }
 
-.dark .panel-default > .panel-heading + .panel-collapse .panel-body { border-top-color: #dddddd; }
+.dark .panel-default > .panel-heading + .panel-collapse .panel-body { border-top-color: rgba(255,255,255,0.15); }
 
-.dark .panel-default > .panel-footer + .panel-collapse .panel-body { border-bottom-color: #dddddd; }
+.dark .panel-default > .panel-footer + .panel-collapse .panel-body { border-bottom-color: rgba(255,255,255,0.15); }
 
 .dark .well {
     background-color: rgba(0,0,0,0.2);
     border-color: rgba(255,255,255,0.15);
 }
 
-.dark .well blockquote { border-color: #ddd; }
+.dark .well blockquote { border-color: rgba(255,255,255,0.15); }
 
 .dark .close {
-    color: #FFF;
-    opacity: 0.5;
+    opacity: 1;
+    color: rgba(0,0,0,0.15);
     text-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 
 .dark .close:hover,
 .dark .close:focus {
-    color: #FFF;
-    opacity: 0.8;
+    color: rgba(0,0,0,0.4);
 }
 
 .dark .modal-content { border-color: #555; }
