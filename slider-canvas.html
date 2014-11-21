@@ -388,11 +388,11 @@
                                         <li class="mega-menu-title"><a href="#"><div>Masonry</div></a>
                                             <ul>
                                                 <li><a href="portfolio-mixed-masonry.html"><div>Mixed Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-2.html"><div>2 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-3.html"><div>3 Columns</div></a></li>
+                                                <li><a href="portfolio-2-masonry.html"><div>2 Columns</div></a></li>
+                                                <li><a href="portfolio-3-masonry.html"><div>3 Columns</div></a></li>
                                                 <li><a href="portfolio-masonry.html"><div>4 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-5.html"><div>5 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-6.html"><div>6 Columns</div></a></li>
+                                                <li><a href="portfolio-5-masonry.html"><div>5 Columns</div></a></li>
+                                                <li><a href="portfolio-6-masonry.html"><div>6 Columns</div></a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -659,20 +659,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide dark">
-                        <div class="container clearfix">
-                            <div class="slider-caption slider-caption-center">
-                                <h2 data-caption-animate="fadeInUp">Beautifully Flexible</h2>
-                                <p data-caption-animate="fadeInUp" data-caption-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
-                            </div>
-                        </div>
-                        <div class="video-wrap">
-                            <video poster="images/videos/explore-poster.jpg" preload="auto" loop autoplay muted>
-                                <source src='images/videos/explore.mp4' type='video/mp4' />
-                                <source src='images/videos/explore.webm' type='video/webm' />
-                            </video>
-                            <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
-                        </div>
+                    <div class="swiper-slide">
+                        <div class="yt-bg-player" data-quality="hd1080" data-mute="false" data-volume="100" data-video="http://youtu.be/BCqJGoCMlVc"></div>
                     </div>
                     <div class="swiper-slide" style="background-image: url('images/slider/swiper/3.jpg'); background-position: center top;">
                         <div class="container clearfix">
@@ -720,15 +708,20 @@
                             SEMICOLON.slider.swiperSliderMenu();
                         },
                         onSlideChangeEnd: function(swiper){
-                            $('#slider .swiper-slide').each(function(){
+                            $('#slider').find('.swiper-slide').each(function(){
                                 if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+                                if($(this).find('.yt-bg-player').length > 0) { $(this).find('.yt-bg-player').pauseYTP(); }
                             });
-                            $('#slider .swiper-slide:not(".swiper-slide-active")').each(function(){
+                            $('#slider').find('.swiper-slide:not(".swiper-slide-active")').each(function(){
                                 if($(this).find('video').length > 0) {
                                     if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
                                 }
+                                if($(this).find('.yt-bg-player').length > 0) {
+                                    $(this).find('.yt-bg-player').getPlayer().seekTo( $(this).find('.yt-bg-player').attr('data-start') );
+                                }
                             });
-                            if( $('#slider .swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+                            if( $('#slider').find('.swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider').find('.swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+                            if( $('#slider').find('.swiper-slide.swiper-slide-active').find('.yt-bg-player').length > 0 ) { $('#slider').find('.swiper-slide.swiper-slide-active').find('.yt-bg-player').playYTP(); }
 
                             $('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
                                 var $toAnimateElement = $(this);
@@ -836,7 +829,7 @@
                             <div class="fbox-icon">
                                 <a href="#"><i class="icon-text-width i-alt"></i></a>
                             </div>
-                            <h3>Customizable Font Options</h3>
+                            <h3>CUSTOMIZABLE FONTS</h3>
                             <p>Use any Font you like from Google Web Fonts, Typekit or other Web Fonts. They will blend in perfectly.</p>
                         </div>
                     </div>

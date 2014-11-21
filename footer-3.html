@@ -388,11 +388,11 @@
                                         <li class="mega-menu-title"><a href="#"><div>Masonry</div></a>
                                             <ul>
                                                 <li><a href="portfolio-mixed-masonry.html"><div>Mixed Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-2.html"><div>2 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-3.html"><div>3 Columns</div></a></li>
+                                                <li><a href="portfolio-2-masonry.html"><div>2 Columns</div></a></li>
+                                                <li><a href="portfolio-3-masonry.html"><div>3 Columns</div></a></li>
                                                 <li><a href="portfolio-masonry.html"><div>4 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-5.html"><div>5 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-6.html"><div>6 Columns</div></a></li>
+                                                <li><a href="portfolio-5-masonry.html"><div>5 Columns</div></a></li>
+                                                <li><a href="portfolio-6-masonry.html"><div>6 Columns</div></a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -830,7 +830,11 @@
 
                             <h4>Send Message</h4>
 
-                            <form id="quick-contact-form" name="quick-contact-form" action="functions/footeremail.php" method="post" class="quick-contact-form nobottommargin">
+                            <div id="quick-contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
+
+                            <form id="quick-contact-form" name="quick-contact-form" action="include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
+
+                                <div class="form-process"></div>
 
                                 <div class="input-group divcenter">
                                     <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -841,9 +845,31 @@
                                     <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
                                 </div>
                                 <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+                                <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
                                 <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email</button>
 
                             </form>
+
+                            <script type="text/javascript">
+
+                                $("#quick-contact-form").validate({
+                                    submitHandler: function(form) {
+                                        $(form).animate({ opacity: 0.4 });
+                                        $(form).find('.form-process').fadeIn();
+                                        $(form).ajaxSubmit({
+                                            target: '#quick-contact-form-result',
+                                            success: function() {
+                                                $(form).animate({ opacity: 1 });
+                                                $(form).find('.form-process').fadeOut();
+                                                $(form).find('.form-control').val('');
+                                                $('#quick-contact-form-result').attr('data-notify-msg', $('#quick-contact-form-result').html()).html('');
+                                                SEMICOLON.widget.notifications($('#quick-contact-form-result'));
+                                            }
+                                        });
+                                    }
+                                });
+
+                            </script>
 
                         </div>
 

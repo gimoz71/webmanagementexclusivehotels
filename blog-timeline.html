@@ -388,11 +388,11 @@
                                         <li class="mega-menu-title"><a href="#"><div>Masonry</div></a>
                                             <ul>
                                                 <li><a href="portfolio-mixed-masonry.html"><div>Mixed Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-2.html"><div>2 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-3.html"><div>3 Columns</div></a></li>
+                                                <li><a href="portfolio-2-masonry.html"><div>2 Columns</div></a></li>
+                                                <li><a href="portfolio-3-masonry.html"><div>3 Columns</div></a></li>
                                                 <li><a href="portfolio-masonry.html"><div>4 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-5.html"><div>5 Columns</div></a></li>
-                                                <li><a href="portfolio-masonry-6.html"><div>6 Columns</div></a></li>
+                                                <li><a href="portfolio-5-masonry.html"><div>5 Columns</div></a></li>
+                                                <li><a href="portfolio-6-masonry.html"><div>6 Columns</div></a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -676,6 +676,8 @@
 
                         <div class="timeline-border"></div>
 
+                        <div class="entry entry-date-section notopmargin"><span>November 2014</span></div>
+
                         <div class="entry clearfix">
                             <div class="entry-timeline">
                                 <div class="timeline-divider"></div>
@@ -812,6 +814,8 @@
                             </ul>
                         </div>
 
+                        <div class="entry entry-date-section"><span>October 2014</span></div>
+
                         <div class="entry clearfix">
                             <div class="entry-timeline">
                                 <div class="timeline-divider"></div>
@@ -925,6 +929,10 @@
 
                     </div><!-- #posts end -->
 
+                    <div id="load-next-posts" class="center">
+                        <a href="blog-timeline-2.html" class="button button-3d button-dark button-large button-rounded">Load more..</a>
+                    </div>
+
                     <script type="text/javascript">
 
                         jQuery(window).load(function(){
@@ -932,22 +940,47 @@
                             var $container = $('#posts');
 
                             $container.isotope({
-                                itemSelector: '.entry'
+                                itemSelector: '.entry',
+                                masonry: {
+                                    columnWidth: '.entry:not(.entry-date-section)'
+                                }
+                            });
+
+                            $container.infinitescroll({
+                                loading: {
+                                    finishedMsg: '<i class="icon-line-check"></i>',
+                                    msgText: '<i class="icon-line-loader icon-spin"></i>',
+                                    img: "images/preloader-dark.gif",
+                                    speed: 'normal'
+                                },
+                                state: {
+                                    isDone: false
+                                },
+                                nextSelector: "#load-next-posts a",
+                                navSelector: "#load-next-posts",
+                                itemSelector: "div.entry",
+                                behavior: 'portfolioinfiniteitemsloader'
+                            },
+                            function( newElements ) {
+                                $container.isotope( 'appended', $( newElements ) );
+                                var t = setTimeout( function(){ $container.isotope('layout'); }, 2000 );
+                                SEMICOLON.initialize.resizeVideos();
+                                SEMICOLON.widget.loadFlexSlider();
+                                SEMICOLON.widget.masonryThumbs();
+                                var t = setTimeout( function(){
+                                    SEMICOLON.initialize.blogTimelineEntries();
+                                }, 2500 );
                             });
 
                             var t = setTimeout( function(){
-                                $('.entry').each( function(){
-                                    var position = $(this).position();
-                                    if( position.left != 0 ) {
-                                        $(this).addClass('alt');
-                                    }
-                                    $('.entry').eq(1).find('.entry-timeline').css({ top: '70px' });
-                                    $(this).find('.entry-timeline').fadeIn();
-                                });
+                                SEMICOLON.initialize.blogTimelineEntries();
                             }, 2500 );
 
                             $(window).resize(function() {
                                 $container.isotope('layout');
+                                var t = setTimeout( function(){
+                                    SEMICOLON.initialize.blogTimelineEntries();
+                                }, 2500 );
                             });
 
                         });
