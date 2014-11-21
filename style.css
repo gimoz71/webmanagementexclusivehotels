@@ -11103,6 +11103,10 @@ button.toast-close-button {
     margin-bottom: 30px;
 }
 
+#footer-logo a.standard-logo { display: block; }
+
+#footer-logo a.retina-logo { display: none; }
+
 
 /* ----------------------------------------------------------------
     Widgets
